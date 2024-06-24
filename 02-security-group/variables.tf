@@ -5,6 +5,20 @@ variable "mongodb_sg_function_tags" {
     }
 }
 
+variable "catalogue_sg_function_tags" {
+    type = map 
+    default = {
+        Name = "Roboshop_catalogue_SG"
+    }
+}
+
+variable "user_sg_function_tags" {
+    type = map 
+    default = {
+        Name = "Roboshop_user_SG"
+    }
+}
+
 variable "mongodb_ingress_rules" {
   default = [
     {
