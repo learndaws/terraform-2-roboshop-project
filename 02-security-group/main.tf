@@ -1,4 +1,4 @@
-module "mongodb_sg_project" {
+module "mongodb" {
     #source = "../../terraform-2-sg-developer"
     source = "git::https://github.com/learndaws/terraform-2-sg-developer.git"
     sg_name = "roboshop_mongodb_sg_group"
