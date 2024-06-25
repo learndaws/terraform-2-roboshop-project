@@ -8,6 +8,36 @@ module "mongodb" {
     #ingress_rules = var.mongodb_ingress_rules
 }
 
+module "redis" {
+    #source = "../../terraform-2-sg-developer"
+    source = "git::https://github.com/learndaws/terraform-2-sg-developer.git"
+    sg_name = "roboshop_redis_sg_group"
+    description = "roboshop_redis_allow-specific"
+    vpc_id = data.aws_ssm_parameter.roboshop_dev_vpc_id.value             
+    sg_function_tags = var.redis_sg_function_tags
+    #ingress_rules = var.redis_ingress_rules
+}
+
+module "mysql" {
+    #source = "../../terraform-2-sg-developer"
+    source = "git::https://github.com/learndaws/terraform-2-sg-developer.git"
+    sg_name = "roboshop_mysql_sg_group"
+    description = "roboshop_mysql_allow-specific"
+    vpc_id = data.aws_ssm_parameter.roboshop_dev_vpc_id.value             
+    sg_function_tags = var.mysql_sg_function_tags
+    #ingress_rules = var.mysql_ingress_rules
+}
+
+module "rabbit_mq" {
+    #source = "../../terraform-2-sg-developer"
+    source = "git::https://github.com/learndaws/terraform-2-sg-developer.git"
+    sg_name = "roboshop_rabbit_mq_sg_group"
+    description = "roboshop_rabbit_mq_allow-specific"
+    vpc_id = data.aws_ssm_parameter.roboshop_dev_vpc_id.value             
+    sg_function_tags = var.rabbit_mq_sg_function_tags
+    #ingress_rules = var.rabbit_mq_ingress_rules
+}
+
 module "catalogue" {
     #source = "../../terraform-2-sg-developer"
     source = "git::https://github.com/learndaws/terraform-2-sg-developer.git"
@@ -26,6 +56,46 @@ module "user" {
     vpc_id = data.aws_ssm_parameter.roboshop_dev_vpc_id.value
     sg_function_tags = var.user_sg_function_tags
     #ingress_rules = var.user_ingress_rules
+}
+
+module "cart" {
+    #source = "../../terraform-2-sg-developer"
+    source = "git::https://github.com/learndaws/terraform-2-sg-developer.git"
+    sg_name = "roboshop_cart_sg_group"
+    description = "roboshop_cart_allow-specific"
+    vpc_id = data.aws_ssm_parameter.roboshop_dev_vpc_id.value
+    sg_function_tags = var.cart_sg_function_tags
+    #ingress_rules = var.cart_ingress_rules
+}
+
+module "shipping" {
+    #source = "../../terraform-2-sg-developer"
+    source = "git::https://github.com/learndaws/terraform-2-sg-developer.git"
+    sg_name = "roboshop_shipping_sg_group"
+    description = "roboshop_shipping_allow-specific"
+    vpc_id = data.aws_ssm_parameter.roboshop_dev_vpc_id.value
+    sg_function_tags = var.shipping_sg_function_tags
+    #ingress_rules = var.shipping_ingress_rules
+}
+
+module "payments" {
+    #source = "../../terraform-2-sg-developer"
+    source = "git::https://github.com/learndaws/terraform-2-sg-developer.git"
+    sg_name = "roboshop_payments_sg_group"
+    description = "roboshop_payments_allow-specific"
+    vpc_id = data.aws_ssm_parameter.roboshop_dev_vpc_id.value
+    sg_function_tags = var.payments_sg_function_tags
+    #ingress_rules = var.payments_ingress_rules
+}
+
+module "web" {
+    #source = "../../terraform-2-sg-developer"
+    source = "git::https://github.com/learndaws/terraform-2-sg-developer.git"
+    sg_name = "roboshop_web_sg_group"
+    description = "roboshop_web_allow-specific"
+    vpc_id = data.aws_ssm_parameter.roboshop_dev_vpc_id.value
+    sg_function_tags = var.web_sg_function_tags
+    #ingress_rules = var.web_ingress_rules
 }
 
 resource "aws_security_group_rule" "catalogue_to_mongodb" {

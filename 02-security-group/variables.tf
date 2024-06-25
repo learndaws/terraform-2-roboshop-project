@@ -5,6 +5,27 @@ variable "mongodb_sg_function_tags" {
     }
 }
 
+variable "redis_sg_function_tags" {
+    type = map 
+    default = {
+        Name = "Roboshop_redis_SG"
+    }
+}
+
+variable "mysql_sg_function_tags" {
+    type = map 
+    default = {
+        Name = "Roboshop_mysql_SG"
+    }
+}
+
+variable "rabit_mq_sg_function_tags" {
+    type = map 
+    default = {
+        Name = "Roboshop_rabit_mq_SG"
+    }
+}
+
 variable "catalogue_sg_function_tags" {
     type = map 
     default = {
@@ -16,6 +37,34 @@ variable "user_sg_function_tags" {
     type = map 
     default = {
         Name = "Roboshop_user_SG"
+    }
+}
+
+variable "cart_sg_function_tags" {
+    type = map 
+    default = {
+        Name = "Roboshop_cart_SG"
+    }
+}
+
+variable "shipping_sg_function_tags" {
+    type = map 
+    default = {
+        Name = "Roboshop_shipping_SG"
+    }
+}
+
+variable "payments_sg_function_tags" {
+    type = map 
+    default = {
+        Name = "Roboshop_payments_SG"
+    }
+}
+
+variable "web_sg_function_tags" {
+    type = map 
+    default = {
+        Name = "Roboshop_web_SG"
     }
 }
 
