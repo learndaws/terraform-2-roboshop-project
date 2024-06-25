@@ -19,7 +19,7 @@ variable "mysql_sg_function_tags" {
     }
 }
 
-variable "rabit_mq_sg_function_tags" {
+variable "rabbit_mq_sg_function_tags" {
     type = map 
     default = {
         Name = "Roboshop_rabit_mq_SG"
