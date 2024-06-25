@@ -115,3 +115,21 @@ resource "aws_security_group_rule" "user_to_mongodb" {
   protocol          = "tcp"
   security_group_id = module.mongodb.sg_id
 }
+
+resource "aws_security_group_rule" "user_to_redis" {
+  source_security_group_id = module.user.sg_id                            
+  type              = "ingress"
+  from_port         = 6379
+  to_port           = 6379
+  protocol          = "tcp"
+  security_group_id = module.redis.sg_id
+}
+
+resource "aws_security_group_rule" "cart_to_redis" {
+  source_security_group_id = module.cart.sg_id
+  type              = "ingress"
+  from_port         = 6379
+  to_port           = 6379
+  protocol          = "tcp"
+  security_group_id = module.redis.sg_id
+}
