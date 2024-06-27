@@ -8,7 +8,7 @@ terraform {
 
   backend "s3" {
     bucket         = "daws-common-bucket"
-    key            = "terraform-2-roboshop-project-03-ec2"
+    key            = "terraform-2-roboshop-project-04-ec2"
     region         = "us-east-1"
     dynamodb_table = "daws-common-tfstate"
   }
