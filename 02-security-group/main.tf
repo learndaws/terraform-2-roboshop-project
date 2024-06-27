@@ -98,6 +98,16 @@ module "web" {
     #ingress_rules = var.web_ingress_rules
 }
 
+module "vpn" {
+    #source = "../../terraform-2-sg-developer"
+    source = "git::https://github.com/learndaws/terraform-2-sg-developer.git"
+    sg_name = "roboshop_vpn_sg_group"
+    description = "roboshop_vpn_allow-specific"
+    vpc_id = data.aws_vpc.default.id
+    sg_function_tags = var.vpn_sg_function_tags
+    #ingress_rules = var.vpn_ingress_rules
+}
+
 resource "aws_security_group_rule" "catalogue_to_mongodb" {
   source_security_group_id = module.catalogue.sg_id                            
   type              = "ingress"
@@ -112,6 +122,15 @@ resource "aws_security_group_rule" "user_to_mongodb" {
   type              = "ingress"
   from_port         = 27017
   to_port           = 27017
+  protocol          = "tcp"
+  security_group_id = module.mongodb.sg_id
+}
+
+resource "aws_security_group_rule" "vpn_to_mongodb" {
+  source_security_group_id = module.vpn.sg_id
+  type              = "ingress"
+  from_port         = 22
+  to_port           = 22
   protocol          = "tcp"
   security_group_id = module.mongodb.sg_id
 }
@@ -132,4 +151,13 @@ resource "aws_security_group_rule" "cart_to_redis" {
   to_port           = 6379
   protocol          = "tcp"
   security_group_id = module.redis.sg_id
+}
+
+resource "aws_security_group_rule" "Internet_to_vpn" {
+  type              = "ingress"
+  from_port         = 0
+  to_port           = 65535
+  protocol          = "-1"
+  cidr_blocks         = ["0.0.0.0/0"]
+  security_group_id = module.vpn.sg_id
 }

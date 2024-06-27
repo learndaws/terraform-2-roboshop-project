@@ -68,6 +68,13 @@ variable "web_sg_function_tags" {
     }
 }
 
+variable "vpn_sg_function_tags" {
+    type = map 
+    default = {
+        Name = "Roboshop_vpn_SG"
+    }
+}
+
 variable "mongodb_ingress_rules" {
   default = [
     {
