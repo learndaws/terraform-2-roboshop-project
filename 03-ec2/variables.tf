@@ -5,17 +5,17 @@ variable "name" {
 }
 
 variable "common_tags" {
-    type = map
-    default = {
-        Project = "Roboshop"
-        Environment = "Dev"
-        Terraform = "True"
-    }
+  type = map(any)
+  default = {
+    Project     = "Roboshop"
+    Environment = "Dev"
+    Terraform   = "True"
+  }
 }
 
 variable "mongodb_function_tags" {
-    type = map 
-    default = {
-        Name = "Roboshop_mongodb_ec2"
-    }
+  type = map(any)
+  default = {
+    Name = "Roboshop_mongodb_ec2"
+  }
 }
