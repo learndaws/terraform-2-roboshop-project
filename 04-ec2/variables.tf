@@ -1,6 +1,6 @@
 variable "name" {
   type    = string
-  default = "roboshop-dev-mongodb"
+  default = "roboshop-dev"
 
 }
 
@@ -13,9 +13,13 @@ variable "common_tags" {
   }
 }
 
-variable "mongodb_function_tags" {
-  type = map(any)
+variable "function_tags" {
+  type = map(string)
   default = {
-    Name = "Roboshop_mongodb_ec2"
+    Name = "Roboshop-dev"
   }
+}
+
+variable "zone_name" {
+  default = "hellodns.xyz"
 }
