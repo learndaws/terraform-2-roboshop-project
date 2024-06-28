@@ -1,78 +1,78 @@
 variable "mongodb_sg_function_tags" {
-    type = map 
-    default = {
-        Name = "Roboshop_mongodb_SG"
-    }
+  type = map(any)
+  default = {
+    Name = "Roboshop_mongodb_SG"
+  }
 }
 
 variable "redis_sg_function_tags" {
-    type = map 
-    default = {
-        Name = "Roboshop_redis_SG"
-    }
+  type = map(any)
+  default = {
+    Name = "Roboshop_redis_SG"
+  }
 }
 
 variable "mysql_sg_function_tags" {
-    type = map 
-    default = {
-        Name = "Roboshop_mysql_SG"
-    }
+  type = map(any)
+  default = {
+    Name = "Roboshop_mysql_SG"
+  }
 }
 
 variable "rabbit_mq_sg_function_tags" {
-    type = map 
-    default = {
-        Name = "Roboshop_rabit_mq_SG"
-    }
+  type = map(any)
+  default = {
+    Name = "Roboshop_rabit_mq_SG"
+  }
 }
 
 variable "catalogue_sg_function_tags" {
-    type = map 
-    default = {
-        Name = "Roboshop_catalogue_SG"
-    }
+  type = map(any)
+  default = {
+    Name = "Roboshop_catalogue_SG"
+  }
 }
 
 variable "user_sg_function_tags" {
-    type = map 
-    default = {
-        Name = "Roboshop_user_SG"
-    }
+  type = map(any)
+  default = {
+    Name = "Roboshop_user_SG"
+  }
 }
 
 variable "cart_sg_function_tags" {
-    type = map 
-    default = {
-        Name = "Roboshop_cart_SG"
-    }
+  type = map(any)
+  default = {
+    Name = "Roboshop_cart_SG"
+  }
 }
 
 variable "shipping_sg_function_tags" {
-    type = map 
-    default = {
-        Name = "Roboshop_shipping_SG"
-    }
+  type = map(any)
+  default = {
+    Name = "Roboshop_shipping_SG"
+  }
 }
 
 variable "payments_sg_function_tags" {
-    type = map 
-    default = {
-        Name = "Roboshop_payments_SG"
-    }
+  type = map(any)
+  default = {
+    Name = "Roboshop_payments_SG"
+  }
 }
 
 variable "web_sg_function_tags" {
-    type = map 
-    default = {
-        Name = "Roboshop_web_SG"
-    }
+  type = map(any)
+  default = {
+    Name = "Roboshop_web_SG"
+  }
 }
 
 variable "vpn_sg_function_tags" {
-    type = map 
-    default = {
-        Name = "Roboshop_vpn_SG"
-    }
+  type = map(any)
+  default = {
+    Name = "Roboshop_vpn_SG"
+  }
 }
 
 variable "mongodb_ingress_rules" {

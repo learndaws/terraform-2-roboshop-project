@@ -1,19 +1,19 @@
 terraform {
   required_providers {
     aws = {
-      source = "hashicorp/aws"
+      source  = "hashicorp/aws"
       version = "5.55.0"
     }
   }
 
   backend "s3" {
-    bucket = "daws-common-bucket"
-    key    = "terraform-2-roboshop-project-03-vpn-group"
-    region = "us-east-1"
+    bucket         = "daws-common-bucket"
+    key            = "terraform-2-roboshop-project-03-vpn-group"
+    region         = "us-east-1"
     dynamodb_table = "daws-common-tfstate"
   }
 }
 
 provider "aws" {
-  region = "us-east-1" 
+  region = "us-east-1"
 }

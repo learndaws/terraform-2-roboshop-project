@@ -81,6 +81,6 @@ data "aws_vpc" "default" {
 }
 
 data "aws_subnet" "default_vpc_us_east_1a_subnet" {
-  vpc_id = data.aws_vpc.default.id
+  vpc_id            = data.aws_vpc.default.id
   availability_zone = "us-east-1a"
 }
