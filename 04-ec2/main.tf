@@ -133,89 +133,90 @@ module "ansible" {
 }
 
 module "records" {
-  source    = "terraform-aws-modules/route53/aws//modules/records"
+  source  = "terraform-aws-modules/route53/aws//modules/records"
   zone_name = var.zone_name
 
   records = [
     {
-      name = "mongodb"
-      type = "A"
-      ttl  = 1
+      name    = "mongodb"
+      type    = "A"
+      ttl     = 1
       records = [
         "${module.mongodb.private_ip}",
       ]
     },
     {
-      name = "redis"
-      type = "A"
-      ttl  = 1
+      name    = "redis"
+      type    = "A"
+      ttl     = 1
       records = [
         "${module.redis.private_ip}",
       ]
     },
     {
-      name = "mysql"
-      type = "A"
-      ttl  = 1
+      name    = "mysql"
+      type    = "A"
+      ttl     = 1
       records = [
         "${module.mysql.private_ip}",
       ]
     },
     {
-      name = "rabbit_mq"
-      type = "A"
-      ttl  = 1
+      name    = "rabbit_mq"
+      type    = "A"
+      ttl     = 1
       records = [
         "${module.rabbit_mq.private_ip}",
       ]
     },
     {
-      name = "catalogue"
-      type = "A"
-      ttl  = 1
+      name    = "catalogue"
+      type    = "A"
+      ttl     = 1
       records = [
         "${module.catalogue.private_ip}",
       ]
     },
     {
-      name = "user"
-      type = "A"
-      ttl  = 1
+      name    = "user"
+      type    = "A"
+      ttl     = 1
       records = [
         "${module.user.private_ip}",
       ]
     },
     {
-      name = "cart"
-      type = "A"
-      ttl  = 1
+      name    = "cart"
+      type    = "A"
+      ttl     = 1
       records = [
         "${module.cart.private_ip}",
       ]
     },
     {
-      name = "shipping"
-      type = "A"
-      ttl  = 1
+      name    = "shipping"
+      type    = "A"
+      ttl     = 1
       records = [
         "${module.shipping.private_ip}",
       ]
     },
     {
-      name = "payments"
-      type = "A"
-      ttl  = 1
+      name    = "payments"
+      type    = "A"
+      ttl     = 1
       records = [
         "${module.payments.private_ip}",
       ]
     },
     {
-      name = "web"
-      type = "A"
-      ttl  = 1
+      name    = "web"
+      type    = "A"
+      ttl     = 1
       records = [
         "${module.web.private_ip}",
       ]
     },
   ]
 }
+
